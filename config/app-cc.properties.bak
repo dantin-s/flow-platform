@@ -2,8 +2,8 @@
 
 ### jdbc config ###
 jdbc.url = jdbc:mysql://127.0.0.1:3306/flow_cc_db?useSSL=false
-jdbc.username = root
-jdbc.password = rootroot
+jdbc.username = db_username
+jdbc.password = db_password
 jdbc.pool.size = 50
 jdbc.commit.auto = false
 jdbc.connection.timeout = 20000
@@ -38,8 +38,8 @@ queue.cmd.idle_agent.timeout = 30
 queue.cmd.idle_agent.period = 5
 
 ### agent config ###
-agent.config.ws = ws://127.0.0.1:8080/flow-api
-agent.config.cc = http://127.0.0.1:8080/flow-control-center
+agent.config.ws = ws://api_domain:8080/flow-api
+agent.config.cc = http://api_domain:8080/flow-control-center
 
 ### task toggles ###
 task.zone.toggle.keep_idle_agent = false

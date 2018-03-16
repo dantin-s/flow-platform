@@ -2,8 +2,8 @@
 
 ### JDBC config ###
 jdbc.url = jdbc:mysql://127.0.0.1:3306/flow_api_db?useSSL=false
-jdbc.username = root
-jdbc.password = rootroot
+jdbc.username = db_username
+jdbc.password = db_password
 jdbc.pool.size = 50
 jdbc.commit.auto = false
 jdbc.connection.timeout = 20000
@@ -23,9 +23,9 @@ api.zone.default = default
 api.user.expire = 86400000
 
 ### domain ###
-domain.api = http://127.0.0.1:8080/flow-api
-domain.web = http://127.0.0.1:8080/flow-web
-domain.cc = http://127.0.0.1:8080/flow-control-center
+domain.api = http://api_domain:8080/flow-api
+domain.web = http://web_domain:3000
+domain.cc = http://api_doamin:8080/flow-control-center
 
 system.email = admin@flow.ci
 system.username = admin
@@ -42,5 +42,3 @@ task.job.toggle.execution_timeout = true
 task.job.toggle.execution_create_session_duration = 1800
 ## expired in 3600 seconds for job running
 task.job.toggle.execution_running_duration = 3600
-
-api.run.indocker = false
