@@ -125,8 +125,10 @@ public class OschinaEvents {
 
     public static class PullRequestAdaptor extends GitHookEventAdapter {
 
-        private final static String STATE_OPEN = "opened";
+        // fix pr no state bug, opened -> open
+        private final static String STATE_OPEN = "open";
 
+        // todo: check merged or merge
         private final static String STATE_CLOSE = "merged";
 
         private class JsonHelper {
