@@ -280,10 +280,17 @@ public class NodeResultServiceImpl extends ApplicationEventService implements No
 
             // do not count final node status
             if (current.getIsFinal()) {
-                NodeTree tree = jobNodeService.get(job);
-                Node lastNormalNode = tree.last(false);
-                NodeResult lastNormalNodeResult = find(lastNormalNode.getPath(), job.getId());
-                parentStatus = lastNormalNodeResult.getStatus();
+                NodeStatus lastNormalNodeStatus = null;
+
+                // get last normal node status
+                for (Node node : parent.getChildren()) {
+                    NodeStatus nodeStatus = find(node.getPath(), job.getId()).getStatus();
+                    if (nodeStatus != NodeStatus.PENDING && !node.getIsFinal()){
+                        lastNormalNodeStatus = nodeStatus;
+                    }
+                }
+
+                parentStatus = lastNormalNodeStatus;
             }
 
             parentResult.setStatus(parentStatus);
