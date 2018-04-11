@@ -62,7 +62,7 @@ public class GitEventEnvConverter {
     public static Map<String, String> convert(GitEvent event) {
         if (event instanceof GitPullRequestEvent) {
             GitPullRequestEvent pr = (GitPullRequestEvent) event;
-            Map<String, String> info = new HashMap<>(6);
+            Map<String, String> info = new HashMap<>(10);
             info.put(GitEnvs.FLOW_GIT_EVENT_TYPE.name(), pr.getType().name());
             info.put(GitEnvs.FLOW_GIT_EVENT_SOURCE.name(), pr.getGitSource().name());
 
@@ -70,12 +70,16 @@ public class GitEventEnvConverter {
             if (pr.getState() == State.OPEN) {
                 info.put(GitEnvs.FLOW_GIT_BRANCH.name(), JGitUtil.simpleRef(pr.getSource().getBranch()));
                 info.put(GitEnvs.FLOW_GIT_AUTHOR.name(), pr.getSubmitter());
+                info.put(GitEnvs.FLOW_GIT_PR_STATE.name(), pr.getState().toString());
+                info.put(GitEnvs.FLOW_GIT_PR_MERGEBY.name(), pr.getMergedBy());
             }
 
             // the branch is on target for close pr
             if (pr.getState() == State.CLOSE) {
                 info.put(GitEnvs.FLOW_GIT_BRANCH.name(), JGitUtil.simpleRef(pr.getTarget().getBranch()));
                 info.put(GitEnvs.FLOW_GIT_AUTHOR.name(), pr.getMergedBy());
+                info.put(GitEnvs.FLOW_GIT_PR_STATE.name(), pr.getState().toString());
+                info.put(GitEnvs.FLOW_GIT_PR_MERGEBY.name(), pr.getMergedBy());
             }
 
             // set commit id and url from PR request id and pr url

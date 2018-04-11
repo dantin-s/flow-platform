@@ -111,6 +111,7 @@ public class GitWebHookController extends NodeController {
         }
     }
 
+    // todo: 增加判断, pr 关闭时可不触发构建
     private boolean canExecuteGitEvent(Node flow, Map<String, String> gitEnvs) {
         String gitEventType = gitEnvs.get(GitEnvs.FLOW_GIT_EVENT_TYPE.name());
         String gitBranch = gitEnvs.get(GitEnvs.FLOW_GIT_BRANCH.name());

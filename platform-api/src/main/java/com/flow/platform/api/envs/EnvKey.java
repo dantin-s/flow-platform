@@ -38,6 +38,8 @@ public interface EnvKey {
         GitEnvs.FLOW_GIT_COMPARE_URL.name(),
         GitEnvs.FLOW_GIT_AUTHOR.name(),
         GitEnvs.FLOW_GIT_PR_URL.name(),
+        GitEnvs.FLOW_GIT_PR_STATE.name(),
+        GitEnvs.FLOW_GIT_PR_MERGEBY.name(),
         GitEnvs.FLOW_GIT_EVENT_TYPE.name(),
         GitEnvs.FLOW_GIT_EVENT_SOURCE.name(),
         JobEnvs.FLOW_JOB_LOG_PATH.name()

@@ -41,6 +41,10 @@ public enum GitEnvs implements EnvKey {
 
     FLOW_GIT_CHANGELOG,
 
+    FLOW_GIT_PR_STATE,
+
+    FLOW_GIT_PR_MERGEBY,
+
     /**
      * @see com.flow.platform.util.git.model.GitEventType
      */
