@@ -73,7 +73,14 @@ public class CmdServiceImpl implements CmdService {
 
     @Override
     public String createSession(Job job, Integer retry) {
-        CmdInfo cmdInfo = new CmdInfo(zone, null, CmdType.CREATE_SESSION, null);
+        // 如果指定了 agent，则使用指定 agent 执行
+        String agent = null;
+        String agentFromDeployment = job.getEnv(JobEnvs.FLOW_JOB_AGENT_DEPLOYMENT);
+        if (agentFromDeployment != null && !agentFromDeployment.equals("")){
+            agent = agentFromDeployment;
+        }
+
+        CmdInfo cmdInfo = new CmdInfo(zone, agent, CmdType.CREATE_SESSION, null);
         cmdInfo.setWebhook(buildCmdWebhook(job));
         LOGGER.traceMarker("CreateSession", "job id - %s", job.getId());
 

@@ -42,6 +42,7 @@ public interface EnvKey {
         GitEnvs.FLOW_GIT_PR_MERGEBY.name(),
         GitEnvs.FLOW_GIT_EVENT_TYPE.name(),
         GitEnvs.FLOW_GIT_EVENT_SOURCE.name(),
+        JobEnvs.FLOW_JOB_AGENT_DEPLOYMENT.name(),
         JobEnvs.FLOW_JOB_LOG_PATH.name()
     );
 
