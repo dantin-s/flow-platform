@@ -38,7 +38,7 @@ public enum JobEnvs implements EnvKey {
     /**
      * Agent specify by deployment system
      */
-    FLOW_JOB_AGENT_DEPLOYMENT,
+    FLOW_JOB_AGENT_DEPLOYMENT(false, true),
 
     /**
      * Job log download url
